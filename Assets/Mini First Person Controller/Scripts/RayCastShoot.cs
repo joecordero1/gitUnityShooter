@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RayCastShoot : MonoBehaviour
 {
-    private Camera _mainCamera;
+    
     public float range = 10f;
     public GameObject effect;
     public float force = 4;
@@ -33,9 +33,11 @@ public class RayCastShoot : MonoBehaviour
             GameObject _effect = Instantiate(effect, myHit.point, Quaternion.identity);
             Destroy(_effect, 0.5f);
 
-            if (myHit.collider.GetComponent<Rigidbody>() != null) // Cambiado RigidBody a Rigidbody
+            // Comprueba si el objeto impactado tiene el script "Shooted" o "SphereShooted"
+            Target target = myHit.collider.GetComponent<Target>();
+            if (target != null)
             {
-                myHit.collider.GetComponent<Rigidbody>().AddForce(myHit.normal * force); // Cambiado RigidBody a Rigidbody
+                target.HandleImpact();
             }
         }
     }
