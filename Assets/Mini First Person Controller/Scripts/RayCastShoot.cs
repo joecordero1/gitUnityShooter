@@ -9,6 +9,9 @@ public class RayCastShoot : MonoBehaviour
     public GameObject effect;
     public float force = 4;
 
+    private int cubesDestroyed = 0;
+    private int spheresDestroyed = 0;
+
     // Start is called before the first frame update
     void Start()
     {
