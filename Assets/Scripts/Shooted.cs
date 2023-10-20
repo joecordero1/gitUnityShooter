@@ -6,7 +6,7 @@ public class Shooted : Target
 {
     private float scaleFactor = 0.8f; // Factor para reducir la escala del cubo
     private int maxImpacts = 2; // Número máximo de impactos para cubos
-    private int currentImpacts = 0;
+    public int currentImpacts = 0;
 
     public void ReduceScale()
     {
@@ -20,12 +20,15 @@ public class Shooted : Target
 
         // Incrementar el contador de impactos
         currentImpacts++;
+        
 
         // Comprobar si se ha alcanzado el número máximo de impactos
         if (currentImpacts >= maxImpacts)
         {
             Destroy(gameObject);
+            
         }
+        
     }
 
     void Start()

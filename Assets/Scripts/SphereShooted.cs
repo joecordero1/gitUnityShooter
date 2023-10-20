@@ -6,7 +6,7 @@ public class SphereShooted : Target
 {
     private float scaleFactor = 0.8f; // Factor para reducir la escala de la esfera
     private int maxImpacts = 3; // Número máximo de impactos para esferas
-    private int currentImpacts = 0;
+    public int currentImpacts = 0;
 
     public void ReduceScale()
     {
@@ -25,6 +25,7 @@ public class SphereShooted : Target
         if (currentImpacts >= maxImpacts)
         {
             Destroy(gameObject);
+
         }
     }
 
