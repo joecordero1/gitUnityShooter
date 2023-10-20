@@ -7,7 +7,7 @@ using TMPro;
 public class RayCastShoot : MonoBehaviour
 {
     
-    public float range = 10f;
+    public float range = 50f;
     public GameObject effect;
     public float force = 4;
 
@@ -45,7 +45,7 @@ public class RayCastShoot : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out myHit, range))
         {
             GameObject _effect = Instantiate(effect, myHit.point, Quaternion.identity);
-            Destroy(_effect, 0.5f);
+            Destroy(_effect, 0.2f);
 
             // Comprueba si el objeto impactado tiene el script "Shooted" o "SphereShooted"
             Target target = myHit.collider.GetComponent<Target>();
