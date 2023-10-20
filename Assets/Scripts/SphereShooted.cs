@@ -10,7 +10,7 @@ public class SphereShooted : Target
 
     public void ReduceScale()
     {
-        // Reducir la escala de la esfera
+        // scale reducer
         transform.localScale *= scaleFactor;
     }
 
@@ -18,10 +18,10 @@ public class SphereShooted : Target
     {
         ReduceScale();
 
-        // Incrementar el contador de impactos
+        // impacts counter
         currentImpacts++;
 
-        // Comprobar si se ha alcanzado el número máximo de impactos
+        // Checks for max impacts
         if (currentImpacts >= maxImpacts)
         {
             Destroy(gameObject);

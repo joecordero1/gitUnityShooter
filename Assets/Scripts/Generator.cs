@@ -41,7 +41,7 @@ public class Generador : MonoBehaviour
 
     {
 
-        // Genera la cantidad inicial de cubos y esferas al inicio
+        // Initial cubes and spheres generator
 
         prefabsGenerator("Cube", InitialCantCubes);
 

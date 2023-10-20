@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Shooted : Target
 {
-    private float scaleFactor = 0.8f; // Factor para reducir la escala del cubo
-    private int maxImpacts = 2; // Número máximo de impactos para cubos
+    private float scaleFactor = 0.8f;
+    private int maxImpacts = 2; 
     public int currentImpacts = 0;
 
     public void ReduceScale()
     {
-        // Reducir la escala del cubo
+        // scale reducer
         transform.localScale *= scaleFactor;
     }
 
@@ -18,11 +18,11 @@ public class Shooted : Target
     {
         ReduceScale();
 
-        // Incrementar el contador de impactos
+        // impacts counter
         currentImpacts++;
         
 
-        // Comprobar si se ha alcanzado el número máximo de impactos
+        // Checks for max impacts
         if (currentImpacts >= maxImpacts)
         {
             Destroy(gameObject);
@@ -36,7 +36,6 @@ public class Shooted : Target
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

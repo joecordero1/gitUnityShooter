@@ -19,14 +19,11 @@ public class RayCastShoot : MonoBehaviour
     public TMP_Text CounterCubesText;
     public TMP_Text CounterSpheresText;
 
-    // Start is called before the first frame update
     void Start()
     {
         CounterCubesText.SetText("Cubes destroyed: "+countCubes);
         CounterSpheresText.SetText("Spheres destroyed: "+countSpheres);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -47,7 +44,7 @@ public class RayCastShoot : MonoBehaviour
             GameObject _effect = Instantiate(effect, myHit.point, Quaternion.identity);
             Destroy(_effect, 0.2f);
 
-            // Comprueba si el objeto impactado tiene el script "Shooted" o "SphereShooted"
+            // checks for Shooted(cubes) or SphereShooted (spheres)
             Target target = myHit.collider.GetComponent<Target>();
             if (target != null)
             {
@@ -73,7 +70,7 @@ public class RayCastShoot : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos() // Cambiado onDraw a OnDrawGizmos
+    private void OnDrawGizmos() 
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * range);

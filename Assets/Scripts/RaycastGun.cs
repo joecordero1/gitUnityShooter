@@ -29,20 +29,18 @@ public class RaycastGun : MonoBehaviour
 
             laserLine.SetPosition(0, laserOrigin.position);
 
-            // Calcula la posición desde la cámara hacia el centro de la pantalla
+            
             Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
 
             RaycastHit hit;
-
+            //Draws the laser when hit something
             if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
             {
                 laserLine.SetPosition(1, hit.point);
-
-                //Destroy(hit.transform.gameObject);
             }
             else
             {
-                // Si no se ha impactado nada, dibuja una línea recta hasta el alcance máximo
+                
                 laserLine.SetPosition(1, rayOrigin + (playerCamera.transform.forward * gunRange));
             }
             StartCoroutine(ShootLaser());
